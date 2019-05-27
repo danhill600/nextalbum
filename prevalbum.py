@@ -42,8 +42,6 @@ sliced_list = get_sliced_list(cur_id, cur_album, pl_tuples)
 prev_album = get_prev_album(sliced_list)
 
 for song in client.playlistinfo():
-    if song["album"] != prev_album:
-        print(song["artist"],"-",song["title"],"-",song["album"])
-    else:
+    if song["album"] == prev_album:
         client.playid(song["id"])
         break
